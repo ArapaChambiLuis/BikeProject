@@ -1,0 +1,30 @@
+{% extends 'Base/Base.html' %}
+{% block content %}
+<table class="table table-hover">
+        <thead>
+            <tr>
+                <td>NOMBRE</td>
+                <td>FECHA DE INSCRIPCION</td>
+                <td>ACCIONES</td>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% if object_list %}
+               {% for ciclista in object_list %}
+                <tr class="activate">
+                    <td>{{ciclista.id_ciclista.nombre}}</td>
+                    <td>{{ciclista.fecha_insc}}</td>
+                    <td>
+                        <a class="btn btn-primary" href="">Editar</a>
+                        <a class="btn btn-primary" href="">Eliminar</a>
+                    </td>
+                </tr>
+                 {% endfor%}
+               {% else %}
+                <h1>No se encuentran registros actualmente</h1>
+            {%endif%}
+        </tbody>
+    </table>
+{% endblock %}

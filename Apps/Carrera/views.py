@@ -3,6 +3,7 @@ from django.views.generic import *
 from django.shortcuts import render,render_to_response, redirect
 from Apps.Carrera.forms import *
 from Apps.Carrera.models import Serie, Edicion, Etapa, Ciclista,Inscripcion
+from django.http import HttpResponse
 
 def principal(request):
     return render(request, 'Sources/ver_principal.html')
@@ -32,15 +33,25 @@ class reg_ciclista(CreateView):
     template_name = 'Sources/form_ciclista.html'
     success_url = reverse_lazy('VerCiclistas')
 
+class inscripcion_list(ListView):
+    model = Inscripcion
+    template_name = 'Sources/ver_registro_inscritos.html'
+
 #Visualizar los datos
 def ver_carreras(request):
     lista = Serie.objects.all()
     return render(request, 'Sources/ver_registro_carreras.html', {'carreras': lista})
+import json
 
-def ver_ediciones_carrera(param):
-    serie_datos = Serie.objects.get(id=param)
-    edicion_lista = Edicion.objects.filter(id_serie=serie_datos)
-    return render_to_response('Sources/ver_detalle_Carrera.html', {'datos': serie_datos, 'listae':edicion_lista})
+def buscar_carrera(request):
+    nombre = request.GET.get('nombre_carrera')
+    lista = Serie.objects.filter(nombre_serie__icontains = nombre)
+    return render_to_response('Sources/buscar_reg_carreras.html', {'carreras': lista})
+
+def ver_ediciones_carrera(request,Serie_id):
+    serie_datos = Serie.objects.get(id=Serie_id)
+    edicion_lista = Edicion.objects.filter(id_serie_id=serie_datos)
+    return render_to_response('Sources/ver_detalle_Carrera.html', {'datos': serie_datos, 'lista':edicion_lista})
 
 def ver_etapas_edicion(param):
     edicion_datos = Edicion.objects.get(id=param)

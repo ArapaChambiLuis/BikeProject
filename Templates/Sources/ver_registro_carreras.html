@@ -14,11 +14,20 @@
             </div>
         </div>
     </div>-->
-    {% if carreras %}
+
             <section CLASS="jumbotron">
+                <div class = "container" >
+                    <form method="GET" action="{% url 'BuscarCarrera' %}">
+                        <div>
+                            <input type="text" name="nombre_carrera">
+                            <input type="submit" value="buscar">
+                        </div>
+                    </form>
+                </div>
+       {% if carreras %}
                 {% for carrera in carreras %}
                 <div class = "container" >
-                    <h1> {{ carrera.nombre_serie }} </h1>
+                    <h1><a href="{% url 'DetalleCarrera' carrera.id %}"> {{ carrera.nombre_serie }} </a> </h1>
                     <aside class = "container"></aside>
                     <aside class="container">
                         <div><SPAN>  {{carrera.descripcion}}</SPAN></div>

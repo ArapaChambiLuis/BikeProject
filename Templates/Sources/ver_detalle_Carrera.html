@@ -1,19 +1,10 @@
 {% extends 'Base/Base.html'  %}
-{% load crispy_forms_tags %}
   {% block content %}
         <section class="jumbotron">
             <div class="container">
                     <section CLASS="jumbotron">
 
                         <section class="main row">
-
-                            <div class="col-xs-3 col-md-3 col-lg-3">
-                                <div class="row-md-2" ><a href="VerDatosGener"><img src="https://image.flaticon.com/icons/svg/167/167750.svg" width="50%" height="15%"></a></div><hr>
-                                <div class="row-md-2"><a href="VerProfesion"><img src="https://image.flaticon.com/icons/svg/201/201614.svg" width="50%" height="15%"></a></div><hr>
-                                <div class="row-md-2"><a href="VerExperiencia"><img src="https://image.flaticon.com/icons/svg/201/201567.svg" width="50%" height="15%"></a></div><hr>
-                                <div class="row-md-2"><a href="VerCapacitacion"><img src="https://image.flaticon.com/icons/svg/906/906175.svg " width="50%" height="15%"></a></div>
-
-                            </div>
 
                             <div class="col-xs-7 col-md-6 col-lg-9">
                                 <h1> {{ datos.nombre_serie }} </h1>
@@ -29,26 +20,26 @@
 
                                 <div>
                                     <h2>Ediciones </h2>
-                                    {% for edi in lista %}
-                                        {% if prof%}
-                                            <div class="container">
-                                              <div><h3> Edicion {{ edi.ano_edicion}}</h3></div>
-                                              <div><SPAN>Descripcion: </SPAN>{{ edi.descripcion }}</div>
-                                              <div><SPAN>Vigencia : </SPAN>{{ edi.vigente }}</div>
-
-                                            </div>
-                                              <aside>
-                                                  <button  class="btn btn-primary" type="submit"><a href="VerInscritos">VER INSCRITOS</a></button>
-                                                  <button  class="btn btn-primary" type="submit"><a href="VerEtapas">VER ETAPAS</a></button>
-                                                  <button  class="btn btn-primary" type="submit"><a href="EditarEdicion">EDITAR</a></button>
-                                                  <button  class="btn btn-primary" type="submit"><a href="EliminarEdicion">ELIMINAR</a></button>
-                                              </aside>
+                                        {% if lista %}
+                                            {% for edi in lista %}
+                                                <div class="container">
+                                                  <div><h3> Edicion {{ edi.ano_edicion}}</h3></div>
+                                                  <div><SPAN>Descripcion: </SPAN>{{ edi.descripcion }}</div>
+                                                  <div><SPAN>Vigencia : </SPAN>{{ edi.vigente }}</div>
+                                                </div>
+                                                  <aside>
+                                                      <button  class="btn btn-primary" type="submit"><a href="VerInscritos">VER INSCRITOS</a></button>
+                                                      <button  class="btn btn-primary" type="submit"><a href="VerEtapas">VER ETAPAS</a></button>
+                                                      <button  class="btn btn-primary" type="submit"><a href="EditarEdicion">EDITAR</a></button>
+                                                      <button  class="btn btn-primary" type="submit"><a href="EliminarEdicion">ELIMINAR</a></button>
+                                                  </aside>
+                                            {% endfor %}
                                         {% else %}
-                                            <div><span>No tiene profesiones </span></div>
+                                            <div><span>No tiene ediciones </span></div>
                                         {% endif%}
-                                    {% endfor %}
+                                    <br>
                                     <DIV>
-                                        <button  class="btn btn-primary" type="submit">Añadir Edicion</button>
+                                        <button  class="btn btn-primary btn-ln" type="submit">Añadir Edicion</button>
                                     </DIV>
                                 </div>
 

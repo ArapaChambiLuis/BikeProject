@@ -97,3 +97,22 @@ class form_ciclista(forms.ModelForm):
             'peso': forms.TextInput(attrs={'class': 'form-control'}),
             'talla': forms.TextInput(attrs={'class': 'form-control'})
         }
+
+class form_inscripcion(forms.ModelForm):
+    class Meta:
+        models = Inscripcion
+        fields = [
+
+            'id_edicion',
+            'fecha_insc'
+        ]
+        labels = {
+
+            'id_edicion' : 'Carrera a la que desea participar',
+            'fecha_insc' : 'Fecha de inscripcion'
+        }
+        widgets = {
+
+            'id_edicion': forms.Select(attrs={'class': 'form-control'}),
+            'fecha_insc' : forms.DateInput(attrs={'class': 'form-control'}),
+        }

@@ -9,7 +9,6 @@
         </thead>
 
         <tbody>
-            <div class="table-responsive">
             {% if inscripciones %}
                {% for ciclista in inscripciones %}
                 <tr class="activate">
@@ -20,7 +19,6 @@
                {% else %}
                 <h1>No se encuentran registros actualmente</h1>
             {%endif%}
-            </div>
         </tbody>
     </table>
 {% endblock %}

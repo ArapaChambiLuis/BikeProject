@@ -1,0 +1,44 @@
+{% extends 'Base/Base.html' %}
+
+{% block content %}
+<table class="table table-hover">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>APELLIDO PATERNO</td>
+                <td>APELLIDO MATERNO</td>
+                <td>NOMBRE</td>
+                <td>DNI</td>
+                <td>DIRECCION</td>
+                <td>SEXO</td>
+                <td>EDAD</td>
+                <td>PESO</td>
+                <td>TALLA</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <div class="table-responsive">
+            {% if ciclistas %}
+               {% for ciclista in ciclistas %}
+                <tr class="activate">
+                    <td>{{ciclista.id}}</td>
+                    <td>{{ciclista.ape_pat}}</td>
+                    <td>{{ciclista.ape_mat}}</td>
+                    <td>{{ciclista.nombre}}</td>
+                    <td>{{ciclista.dni}}</td>
+                    <td>{{ciclista.direccion}}</td>
+                    <td>{{ciclista.sexo}}</td>
+                    <td>{{ciclista.edad}}</td>
+                    <td>{{ciclista.peso}}</td>
+                    <td>{{ciclista.talla}}</td>
+
+                </tr>
+                 {% endfor%}
+               {% else %}
+                <h1>No se encuentran registros actualmente</h1>
+            {%endif%}
+            </div>
+        </tbody>
+    </table>
+{% endblock %}

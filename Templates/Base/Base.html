@@ -1,0 +1,62 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'Css/index.css' %}">
+    <meta name="viewport" content="width=device-width,user-escalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{% static 'Js/javascript.js' %}"></script>
+    <title>{% block title %} Ciclismo {% endblock %}</title>
+
+</head>
+<body>
+    {% block header %}
+
+
+        <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navegacion-fm">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand"> Equipo 5</a>
+                </div>
+                <div class="collapse navbar-collapse" id="navegacion-fm">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="Principal" > Principal</a></li>
+                        <li><a href="Carreras"> Carreras</a></li>
+                        <li><a href="GestionarCarreras" > GestionarCarreras</a></li>
+                        <li><a href="Ciclistas" > Ciclistas Registrados </a></li>
+                        <li><a href="Acerca de nosotros" > Acerca de nosotros</a></li>
+
+                    </ul>
+                </div>
+            </div>
+
+           </nav>
+
+    {% endblock %}
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% block footer %}
+    <h4>  </h4>
+    {% endblock %}
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"></script>
+    <!-- <script src = "{% static 'Js/bootstrap.min.js' %}"></script>-->
+
+    <script  src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+</body>
+</html>

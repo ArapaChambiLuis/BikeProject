@@ -1,0 +1,32 @@
+{% extends 'Base/Base.html'%}
+{% block content %}
+    <div id="container">
+        <div class="search">
+            <div class="searchbox">
+                <label>Buscar una carrera:</label>
+                <span class="info">(Puede ser el nombre o el id de la carrera)</span>
+                <input id="search_input" type="text" name="q">
+                {% csrf_token %}
+            </div>
+            <div class="results">
+                <h1 class="error"></h1>
+                <div class="wrapper"></div>
+            </div>
+        </div>
+    </div>
+    {% if object_list %}
+            <section CLASS="jumbotron">
+                {% for carrera in object_list %}
+                <div class = "container" >
+                    <h1> {{ carrera.nombre_serie }} </h1>
+                    <aside class = "container"></aside>
+                    <aside class="container">
+                        <div><SPAN>  {{carrera.descripcion}}</SPAN></div>
+                    </aside>
+                </div>
+
+                {% endfor %}
+            </section>
+
+    {% endif %}
+{% endblock%}

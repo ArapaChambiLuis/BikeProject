@@ -1,0 +1,29 @@
+{% extends 'Base/Base.html'%}
+{%block content%}
+<section class="jumbotron">
+        <div class="container">
+            <section class="main row">
+            <div class="col-xs-3 col-md-3 col-lg-3">
+                <div class="row-md-2" ><a><img src="https://image.flaticon.com/icons/svg/167/167750.svg" width="50%" height="15%"></a></div><hr>
+                <div class="row-md-2"><a href="RegistrarSerie"><img src="https://image.flaticon.com/icons/svg/201/201614.svg" width="50%" height="15%"></a></div><hr>
+                <div class="row-md-2"><a href="RegistrarEdicion"><img src="https://image.flaticon.com/icons/svg/201/201567.svg" width="50%" height="15%"></a></div><hr>
+                <div class="row-md-2"><a href="RegistrarEtapa"><img src="https://image.flaticon.com/icons/svg/906/906175.svg " width="50%" height="15%"></a></div>
+
+            </div>
+
+            <div class="col-xs-7 col-md-6 col-lg-9">
+
+                <h2 >Registrar carrera </h2>
+                <p> Aqui registraremos a las carreras </p>
+
+                <form method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button  class="btn btn-primary" type="submit">GUARDAR</BUTTON>
+                </FORM>
+            </DIV>
+
+            </section>
+        </DIV>
+</SECTION>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'Base/Base.html'%}
+{%block content%}
+<section class="jumbotron">
+        <div class="container">
+            <section class="main row">
+               <div class="col-xs-7 col-md-6 col-lg-9">
+                    <h2>Registrarse </h2>
+                    <form method="post">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button  class="btn btn-primary" type="submit">REGISTRAR</BUTTON>
+                    </FORM>
+                </DIV>
+            </section>
+        </DIV>
+</SECTION>
+
+
+{% endblock %}

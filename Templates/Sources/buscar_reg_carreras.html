@@ -4,7 +4,7 @@
             <section CLASS="jumbotron">
                 {% for carrera in carreras %}
                 <div class = "container" >
-                    <h1> {{ carrera.nombre_serie }} </h1>
+                    <h1> <a href="{% url 'DetalleCarrera' carrera.id %}">{{ carrera.nombre_serie }} </a></h1>
                     <aside class = "container"></aside>
                     <aside class="container">
                         <div><SPAN>  {{carrera.descripcion}}</SPAN></div>

@@ -24,18 +24,28 @@
                         </div>
                     </form>
                 </div>
-       {% if carreras %}
+                <div>
+                    <a href="{% url 'AgregarCarrera' %}"> Añadir Carrera </a>
+                </div>
+        {% if carreras %}
                 {% for carrera in carreras %}
                 <div class = "container" >
                     <h1><a href="{% url 'DetalleCarrera' carrera.id %}"> {{ carrera.nombre_serie }} </a> </h1>
                     <aside class = "container"></aside>
                     <aside class="container">
                         <div><SPAN>  {{carrera.descripcion}}</SPAN></div>
+                        <section  class="container" >
+                            <a href="{% url 'EditarCarrera' carrera.id %}">EDITAR</a>
+                            <a href="{% url 'EliminarCarrera' carrera.id %}">ELIMINAR</a>
+                        </section>
                     </aside>
+
                 </div>
+
 
                 {% endfor %}
             </section>
 
     {% endif %}
+
 {% endblock%}

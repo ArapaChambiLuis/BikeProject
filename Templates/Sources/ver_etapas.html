@@ -4,15 +4,20 @@
             <section class="jumbotron">
                 <section class="main row">
                         <div class="col-xs-3 col-md-3 col-lg-3">
-                            <div class="row-md-2" ><a href="VerDatosGener"> Volver  </a></div><hr>
-
+                            <div class="row-md-2" ><a href="{% url 'DetalleCarrera' datos.id_serie_id %}"> Volver </a></div>
+                            <hr>
                         </div>
-                        <H2>Etapas</H2>
+                        <div class="container">
+                            <div><h2> Edicion {{ datos.ano_edicion}}</h2></div>
+                            <div><h4>{{ datos.descripcion }}</h4></div>
+                            <div><h4>Vigencia : {{ datos.vigente }} </h4></div>
+                        </div>
+                        <H3>Etapas</H3>
                         <div class="col-xs-7 col-md-6 col-lg-9">
-                            {%for etapa in etapas %}
-                            <div>
+                            {% if lista %}
+                                {%for etapa in lista %}
+                                    <div>
                                     <hr>
-                                    {% if etapa %}
                                     <DIV>
                                         <div><span>Profesion: {{etapa.id_edicion}}</span></div>
                                         <div><span>Fecha: {{etapa.fecha}}</span></div>
@@ -23,16 +28,17 @@
                                         <div><span>punto de llegada: {{etapa.pto_llegada}}</span><</div>
                                     </DIV>
                                     <SECTION>
-                                        <button type="button" class="btn btn-primary btn-lg btn-block">EDITAR </button>
-                                        <button type="button" class="btn btn-primary btn-lg btn-block">ELIMINAR </button>
+                                        <a href="{% url 'EditarEtapa' etapa.id %}">EDITAR</a>
+                                        <a href="{% url 'EliminarEtapa' etapa.id %}">ELIMINAR</a>
                                     </SECTION>
-                                    {% else %}
-                                        <div><span>No tiene etapas </span></div>
-                                    {% endif %}
-                             </div>
-                            {% endfor %}
+
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                            <div><span>No tiene etapas </span></div>
+                            {% endif %}
                         </div>
-                        <button type="button" class="btn btn-primary btn-lg btn-block">AÑADIR ETAPA </button>
+                    <a href="AgregarEtapas">AÑADIR ETAPA </a>
                 </section>
             </section>
         </div>

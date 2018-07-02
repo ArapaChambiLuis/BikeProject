@@ -67,9 +67,9 @@ class Inscripcion(models.Model):
     id_edicion = models.ForeignKey(Edicion,null=False, blank=True, on_delete=models.CASCADE)
     fecha_insc = models.DateTimeField(auto_now=True)
 
-    def nom_inscpricion(self):
+    def nom_inscripcion(self):
         cadena5 = "{0} // {1}"
         return cadena5.format(self.id_ciclista, self.id_edicion)
 
     def __str__(self):
-        return self.nom_inscpricion()
+        return self.nom_inscripcion()

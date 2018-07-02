@@ -28,10 +28,10 @@
                                                   <div><SPAN>Vigencia : </SPAN>{{ edi.vigente }}</div>
                                                 </div>
                                                   <aside>
-                                                      <button  class="btn btn-primary" type="submit"><a href="VerInscritos">VER INSCRITOS</a></button>
-                                                      <button  class="btn btn-primary" type="submit"><a href="VerEtapas">VER ETAPAS</a></button>
-                                                      <button  class="btn btn-primary" type="submit"><a href="EditarEdicion">EDITAR</a></button>
-                                                      <button  class="btn btn-primary" type="submit"><a href="EliminarEdicion">ELIMINAR</a></button>
+                                                      <a href="{% url 'VerInscritos' edi.id %}">VER INSCRITOS</a>
+                                                      <a href="{% url 'VerEtapas' edi.id %}">VER ETAPAS</a></button>
+                                                      <a href="{% url 'EditarEdicion' edi.id %}">EDITAR</a>
+                                                      <a href="{% url 'EliminarEdicion' edi.id %}">ELIMINAR</a></button>
                                                   </aside>
                                             {% endfor %}
                                         {% else %}
@@ -39,7 +39,7 @@
                                         {% endif%}
                                     <br>
                                     <DIV>
-                                        <button  class="btn btn-primary btn-ln" type="submit">Añadir Edicion</button>
+                                        <a href="{% url 'AgregarEdicion' datos.id %}">Añadir Edicion</a>
                                     </DIV>
                                 </div>
 

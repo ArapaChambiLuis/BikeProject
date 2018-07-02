@@ -92,3 +92,9 @@ body{
     font-weight: bold;
     font-size: 15px;
 }
+
+fondo {
+    background : url(../Statics/Images/Fondo.jpg) no-repeat fixed center center  #333;
+    background-size : cover ;
+
+}

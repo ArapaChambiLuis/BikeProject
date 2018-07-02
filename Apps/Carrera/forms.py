@@ -56,7 +56,9 @@ class form_edicion(forms.ModelForm):
             'ano_edicion': forms.TextInput(attrs={'class': 'form-control'}),
             'descripcion': forms.TextInput(attrs={'class': 'form-control'}),
             'vigente': forms.Select(attrs={'class': 'form-control'}),
+
         }
+
 
 
 class reg_etapa(forms.ModelForm):

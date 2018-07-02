@@ -5,13 +5,14 @@ urlpatterns = (
     url(r'^Principal', principal, name='Principal'),
     url(r'^Ciclistas', ver_ciclistas, name='VerCiclistas'),
     url(r'^DetalleCarrera/(?P<Serie_id>\d+)$', ver_ediciones_carrera, name='DetalleCarrera'),
+
     url(r'^AgregarCarrera$', reg_serie.as_view(), name='AgregarCarrera'),
     url(r'^EditarCarrera/(?P<pk>\d+)$', edit_serie.as_view(),name='EditarCarrera'),
     url(r'^EliminarCarrera/(?P<pk>\d+)$', elim_serie.as_view() ,name='EliminarCarrera'),
     url(r'^VerInscritos/(?P<Edicion_id>\d+)$', ver_inscripciones_edicion, name='VerInscritos'),
     url(r'^VerEtapas/(?P<Edicion_id>\d+)$', ver_etapas_edicion, name='VerEtapas'),
-    url(r'^AgregarEdicion/(?P<Serie_id>\d+)$', reg_edicion.as_view(), name='AgregarEdicion'),
 
+    url(r'^AgregarEdicion/(?P<Serie_id>\d+)$', reg_edicion.as_view(), name='AgregarEdicion'),
     url(r'^EditarEdicion/(?P<pk>\d+)$', edit_edicion.as_view(),name='EditarEdicion'),
     url(r'^EliminarEdicion/(?P<pk>\d+)$', elim_edicion.as_view() ,name='EliminarEdicion'),
 

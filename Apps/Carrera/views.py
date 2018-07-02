@@ -35,8 +35,9 @@ class reg_edicion(CreateView):
     template_name = 'Sources/form_edicion.html'
     success_url = reverse_lazy('VerCarreras')
 
+
 class edit_edicion(UpdateView):
-    form_class = form_edicion
+    form_class = form_edicion()
     model = Edicion
     template_name = 'Sources/form_edicion.html'
     success_url = reverse_lazy('VerCarreras')
@@ -61,18 +62,6 @@ class edit_etapa(UpdateView):
 class elim_etapa(DeleteView):
     model = Etapa
     template_name = 'Sources/elim_etapa.html'
-    success_url = reverse_lazy('VerCarreras')
-
-class reg_ciclista(CreateView):
-    model = Ciclista
-    form_class = form_ciclista
-    template_name = 'Sources/form_ciclista.html'
-    success_url = reverse_lazy('Inscribirse')
-
-class reg_inscripcion2(CreateView):
-    model = Inscripcion
-    form_class = form_inscripcion
-    template_name = 'Source/form_inscripcion.html'
     success_url = reverse_lazy('VerCarreras')
 
 class inscripcion_list(ListView):
@@ -125,7 +114,7 @@ class reg_inscripcion(CreateView):
 
     def post(self,request, *args, **kwargs):
         self.object = self.get_object
-        form = self.form_class(request.POST)
+        form = self.form_class(request)
         form2 = self.second_form_class(request.POST)
         if form.is_valid() and form2.is_valid():
             solicitud =form.save(commit=False)

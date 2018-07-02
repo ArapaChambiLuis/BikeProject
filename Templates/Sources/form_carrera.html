@@ -7,8 +7,11 @@
                 <h2 >carrera </h2>
                 <form method="post">
                 {% csrf_token %}
-                {{form.as_p}}
-                <button  class="btn btn-primary" type="submit">GUARDAR</BUTTON>
+                    <div>
+                        <label for="{form.nombre_serie.nombre_serie}"> {{form.nombre_serie.label}}</label>{{form.nombre_serie}}
+                        <label for="{form.descripcion.descripcion}"> {{form.descripcion.label}}</label>{{form.descripcion}}
+                    </div>
+                    <button  class="btn btn-primary" type="submit">GUARDAR</BUTTON>
                 </FORM>
             </DIV>
             </section>

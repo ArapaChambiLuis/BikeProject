@@ -1,51 +1,51 @@
 {% extends 'Base/Base.html'%}
 {% block content %}
-    <!--<div id="container">
-        <div class="search">
-            <div class="searchbox">
-                <label>Buscar una carrera:</label>
-                <span class="info">(Puede ser el nombre o el id de la carrera)</span>
-                <input id="search_input" type="text" name="q">
-                {% csrf_token %}
-            </div>
-            <div class="results">
-                <h1 class="error"></h1>
-                <div class="wrapper"></div>
-            </div>
-        </div>
-    </div>-->
-
-            <section CLASS="jumbotron">
-                <div class = "container" >
-                    <form method="GET" action="{% url 'BuscarCarrera' %}">
-                        <div>
-                            <input type="text" name="nombre_carrera">
-                            <input type="submit" value="buscar">
+<section CLASS="jumbotron">
+    <div class="container">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class = "col-md-10" >
+                            <form method="GET" action="{% url 'BuscarCarrera' %}">
+                                <div class="col-md-10"><input class="form-control"type="text" name="nombre_carrera"></div>
+                                <div class="col-md-2"><input class="btn btn-primary activate btn-lg" class="btn btn-primary" type="submit" value="BUSCAR"></div>
+                            </form>
                         </div>
-                    </form>
+                        <div class="col-md-1">
+                            <a class="btn btn-warning btn-lg" href="{% url 'AgregarCarrera' %}"> Nueva Carrera </a>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <a href="{% url 'AgregarCarrera' %}"> Añadir Carrera </a>
-                </div>
+    </div>
         {% if carreras %}
-                {% for carrera in carreras %}
-                <div class = "container" >
-                    <h1><a href="{% url 'DetalleCarrera' carrera.id %}"> {{ carrera.nombre_serie }} </a> </h1>
-                    <aside class = "container"></aside>
-                    <aside class="container">
-                        <div><SPAN>  {{carrera.descripcion}}</SPAN></div>
-                        <section  class="container" >
-                            <a href="{% url 'EditarCarrera' carrera.id %}">EDITAR</a>
-                            <a href="{% url 'EliminarCarrera' carrera.id %}">ELIMINAR</a>
-                        </section>
-                    </aside>
+
+                <div class="container">
+
+                    <div class="container">
+                        <div class="col-md-9">
+                        {% for carrera in carreras %}
+                            <div class="col-md-4">
+                                <img src="https://image.flaticon.com/icons/svg/17/17958.svg" class="img-responsive img-rounder" alt="">
+                                <div class = "container" >
+                                    <h2><a href="{% url 'DetalleCarrera' carrera.id %}"> {{ carrera.nombre_serie }} </a> </h2>
+                                    <div class="container">
+                                        <div class="row-md-2"><SPAN>  {{carrera.descripcion}}</SPAN></div>
+                                        <br>
+                                        <div  class="row-md-2">
+                                            <a class="btn btn-primary btn-md" href="{% url 'EditarCarrera' carrera.id %}">EDITAR</a>
+                                            <a class="btn btn-danger btn-md" href="{% url 'EliminarCarrera' carrera.id %}">ELIMINAR</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+                        <div class="col-md-3">
+                            Publicidad
+                        </div>
+                    </div>
+
 
                 </div>
-
-
-                {% endfor %}
-            </section>
-
     {% endif %}
-
+            </section>
 {% endblock%}

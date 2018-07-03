@@ -3,7 +3,7 @@ from django.views.generic import *
 from django.shortcuts import render,render_to_response, redirect
 from Apps.Carrera.forms import *
 from Apps.Carrera.models import Serie, Edicion, Etapa, Ciclista,Inscripcion
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,HttpResponse
 
 
 def principal(request):
@@ -94,8 +94,9 @@ def ver_ciclistas(request):
     return render_to_response('Sources/ver_registro_ciclistas.html', {'ciclistas': lista})
 
 def ver_inscripciones_edicion(request,Edicion_id):
+    datos_edicion = Edicion.objects.get(id=Edicion_id)
     lista = Inscripcion.objects.filter(id_edicion_id = Edicion_id)
-    return render_to_response('Sources/ver_inscritos.html', {'inscripciones': lista})
+    return render_to_response('Sources/ver_inscritos.html', {'edicion':datos_edicion,'inscripciones': lista})
 
 class reg_inscripcion(CreateView):
     model = Inscripcion
@@ -158,3 +159,4 @@ def gestion(request):
     else:
         form = form_serie()
         return render(request, 'Sources/form_carrera.html', {'form': form})
+

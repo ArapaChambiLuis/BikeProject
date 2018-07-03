@@ -1,17 +1,28 @@
 {% extends 'Base/Base.html'%}
 {% block content %}
     {% if carreras %}
-            <section CLASS="jumbotron">
-                {% for carrera in carreras %}
-                <div class = "container" >
-                    <h1> <a href="{% url 'DetalleCarrera' carrera.id %}">{{ carrera.nombre_serie }} </a></h1>
-                    <aside class = "container"></aside>
-                    <aside class="container">
-                        <div><SPAN>  {{carrera.descripcion}}</SPAN></div>
-                    </aside>
-                </div>
-                {% endfor %}
-            </section>
+<section class="jumbotron" style="background-image : url(https://i.pinimg.com/originals/53/04/70/5304706e3108d7226a82ce812e67ced2.jpg);
+	  		 		    background-repeat: no-repeat ; center center ; min-height : 700px;">
+    <div class="container-fluid" >
+        <section CLASS="jumbotron" style="background-color:rgba(238, 238, 238, 0.8);overflow: auto;">
+             <div>
+
+                    {% for carrera in carreras %}
+                    <div class = "container" >
+                        <h1> <a href="{% url 'DetalleCarrera' carrera.id %}">{{ carrera.nombre_serie }} </a></h1>
+                        <aside class = "container"></aside>
+                        <aside class="container">
+                            <div><SPAN>  {{carrera.descripcion}}</SPAN></div>
+                        </aside>
+                    </div>
+                    {% endfor %}
+
+             </div>
+        </section>
+    </div>
+</section>
+
+
 
     {% endif %}
 {% endblock%}

@@ -1,6 +1,6 @@
 {% extends 'Base/Base.html'%}
 {%block content%}
-<section class="jumbotron">
+<section class="jumbotron" >
         <div class="container">
             <section class="main row">
             <div class="col-xs-7 col-md-6 col-lg-9">
@@ -8,8 +8,8 @@
                 <form method="post">
                     {% csrf_token %}
                     <H3>¿ Desea eliminar el registro de  la carrera {{object}} ?</H3>
-                    <button class="btn" type="submit" href="{% url 'DetalleCarrera' object.id_serie_id %} ">Si, eliminar</button>
-                    <a class="btn btn-danger" href="{% url 'DetalleCarrera' object.id_serie_id %}">Cancelar </a>
+                    <button class="btn" type="submit" href="{% url 'VerCarreras'  %} ">Si, eliminar</button>
+                    <a class="btn btn-danger" href="{% url 'VerCarreras'  %}">Cancelar </a>
                 </FORM>
             </DIV>
             </section>

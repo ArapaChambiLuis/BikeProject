@@ -1,44 +1,73 @@
 {% extends 'Base/Base.html' %}
 
 {% block content %}
-<table class="table table-hover">
-        <thead>
-            <tr>
-                <td>#</td>
-                <td>APELLIDO PATERNO</td>
-                <td>APELLIDO MATERNO</td>
-                <td>NOMBRE</td>
-                <td>DNI</td>
-                <td>DIRECCION</td>
-                <td>SEXO</td>
-                <td>EDAD</td>
-                <td>PESO</td>
-                <td>TALLA</td>
-            </tr>
-        </thead>
+<section class="jumbotron" style="background-image : url(https://i.pinimg.com/originals/53/04/70/5304706e3108d7226a82ce812e67ced2.jpg);
+	  		 		    background-repeat: no-repeat ; center center ; min-height : 700px;">
+    <div class="container-fluid" >
+        <section CLASS="jumbotron" style="background-color:rgba(238, 238, 238, 0.8);overflow: auto;">
+            <div class="container table-hover">
+                <table class="table table-striped">
+                    <div class="container">
+                        <div class="container">
+                            <div class="row">
+                                <br>
+                                <div class="col-md-9" align="center">
+                                <h1> CICLISTAS REGISTRADOS</h1>
+                                </div>
+                                <div class="col-md-1">
+                                    <img class="img-responsive rounded-circle" src="https://cdn.i
+                                    con-icons.com/icons2/910/PNG/512/print_icon-
+                                    icons.com_71115.png" onclick="window.print()" width="100%" height="100%" >
+                                    </img>
+                                </div>
+                            </div>
+            <br>
+                            {%if ciclistas%}
+                                <thead align="center">
+                                    <tr>
+                                        <td><h4>#</h4></td>
+                                        <td><h4>APELLIDO PATERNO</h4></td>
+                                        <td><h4>APELLIDO MATERNO</h4></td>
+                                        <td><h4>NOMBRE</h4></td>
+                                        <td><h4>DNI</h4></td>
+                                        <td><h4>DIRECCION</h4></td>
+                                        <td><h4>SEXO</h4></td>
+                                        <td><h4>EDAD</h4></td>
+                                        <td><h4>PESO</h4></td>
+                                        <td><h4>TALLA</h4></td>
+                                    </tr>
+                                </thead>
+                            {% endif %}
+                        </div>
+                        <div class="container">
+                            <tbody align="center">
+                                <div class="table-responsive">
+                                {% if ciclistas %}
+                                   {% for ciclista in ciclistas %}
+                                    <tr class="activate">
+                                        <td>{{ciclista.id}}</td>
+                                        <td>{{ciclista.ape_pat}}</td>
+                                        <td>{{ciclista.ape_mat}}</td>
+                                        <td>{{ciclista.nombre}}</td>
+                                        <td>{{ciclista.dni}}</td>
+                                        <td>{{ciclista.direccion}}</td>
+                                        <td>{{ciclista.sexo}}</td>
+                                        <td>{{ciclista.edad}}</td>
+                                        <td>{{ciclista.peso}}</td>
+                                        <td>{{ciclista.talla}}</td>
 
-        <tbody>
-            <div class="table-responsive">
-            {% if ciclistas %}
-               {% for ciclista in ciclistas %}
-                <tr class="activate">
-                    <td>{{ciclista.id}}</td>
-                    <td>{{ciclista.ape_pat}}</td>
-                    <td>{{ciclista.ape_mat}}</td>
-                    <td>{{ciclista.nombre}}</td>
-                    <td>{{ciclista.dni}}</td>
-                    <td>{{ciclista.direccion}}</td>
-                    <td>{{ciclista.sexo}}</td>
-                    <td>{{ciclista.edad}}</td>
-                    <td>{{ciclista.peso}}</td>
-                    <td>{{ciclista.talla}}</td>
-
-                </tr>
-                 {% endfor%}
-               {% else %}
-                <h1>No se encuentran registros actualmente</h1>
-            {%endif%}
+                                    </tr>
+                                     {% endfor%}
+                                   {% else %}
+                                    <h1>No se encuentran registros actualmente</h1>
+                                {%endif%}
+                                </div>
+                            </tbody>
+                        </div>
+                    </div>
+                </table>
             </div>
-        </tbody>
-    </table>
+        </section>
+    </div>
+</section>
 {% endblock %}

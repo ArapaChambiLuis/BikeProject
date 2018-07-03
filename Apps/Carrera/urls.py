@@ -9,6 +9,7 @@ urlpatterns = (
     url(r'^AgregarCarrera$', reg_serie.as_view(), name='AgregarCarrera'),
     url(r'^EditarCarrera/(?P<pk>\d+)$', edit_serie.as_view(),name='EditarCarrera'),
     url(r'^EliminarCarrera/(?P<pk>\d+)$', elim_serie.as_view() ,name='EliminarCarrera'),
+
     url(r'^VerInscritos/(?P<Edicion_id>\d+)$', ver_inscripciones_edicion, name='VerInscritos'),
     url(r'^VerEtapas/(?P<Edicion_id>\d+)$', ver_etapas_edicion, name='VerEtapas'),
 

@@ -1,52 +1,61 @@
 {% extends 'Base/Base.html'  %}
   {% block content %}
-        <section class="jumbotron">
-            <div class="container">
-                    <section CLASS="jumbotron">
-
-                        <section class="main row">
-
-                            <div class="col-xs-7 col-md-6 col-lg-9">
-                                <h1> {{ datos.nombre_serie }} </h1>
-                                <div >
-                                    <h2>Detalle de Carrera </h2>
-                                    <hr>
-                                    <aside class="container">
-                                      <div><SPAN> Codigo : {{ datos.id }}</SPAN></div>
-                                      <div><SPAN>Apellidos y nombres: </SPAN>{{ datos.nombre_serie }}</div>
-                                      <div><SPAN>DNI : </SPAN>{{ datos.descripcion }}</div>
-                                    </aside>
+        <section class="jumbotron" style="background-image : url(https://i.pinimg.com/originals/53/04/70/5304706e3108d7226a82ce812e67ced2.jpg);
+	  		 		    background-repeat: no-repeat ,background-size=100%; center center ; min-height : 700px;background-attachment: fixed;">
+            <div class="container-fluid" >
+                    <section CLASS="jumbotron" style="background-color:rgba(238, 238, 238, 0.3);">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div>
+                                    <h1> {{ datos.nombre_serie }} </h1>
+                                    </div>
+                                    <div>
+                                        <h2>--------------------------------------------</h2>
+                                        <hr>
+                                        <aside class="">
+                                          <div><SPAN>{{ datos.nombre_serie }} </SPAN></div>
+                                          <div><SPAN>{{ datos.descripcion }} </SPAN></div>
+                                        </aside>
+                                    </div>
                                 </div>
+                                <div class="col-md-6" >
+                                        <DIV class="row">
+                                            <div class="col-md-8" align="center" ><h2>Ediciones </h2></div>
+                                            <div class="col-md-2" >
+                                                <a class="btn btn-success btn-lg" href="{% url 'AgregarEdicion' datos.id %}">Añadir Edicion</a>
+                                            </div>
+                                        </DIV>
+                                            {% if lista %}
+                                                {% for edi in lista %}
+                                                    <div class="col-md-6" style="background-color:rgba(238, 238, 238, 0.5);">
+                                                            <div><h3> Edicion {{ edi.ano_edicion}}</h3></div>
+                                                            <div class="col-md-6">
+                                                              <SPAN>Descripcion: </SPAN>{{ edi.descripcion }}
+                                                              <SPAN>Vigencia : </SPAN>{{ edi.vigente }}
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="btn-group-vertical">
+                                                                  <a class="btn btn-primary btn-md" href="{% url 'VerInscritos' edi.id %}">VER INSCRITOS</a>
+                                                                  <a class="btn btn-warning btn-md"href="{% url 'VerEtapas' edi.id %}">VER ETAPAS</a></button>
+                                                                  <a class="btn btn-success btn-md"href="{% url 'EditarEdicion' edi.id %}">EDITAR</a>
+                                                                  <a class="btn btn-danger btn-md" href="{% url 'EliminarEdicion' edi.id %}">ELIMINAR</a></button>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                {% endfor %}
 
-                                <div>
-                                    <h2>Ediciones </h2>
-                                        {% if lista %}
-                                            {% for edi in lista %}
-                                                <div class="container">
-                                                  <div><h3> Edicion {{ edi.ano_edicion}}</h3></div>
-                                                  <div><SPAN>Descripcion: </SPAN>{{ edi.descripcion }}</div>
-                                                  <div><SPAN>Vigencia : </SPAN>{{ edi.vigente }}</div>
-                                                </div>
-                                                  <aside>
-                                                      <a href="{% url 'VerInscritos' edi.id %}">VER INSCRITOS</a>
-                                                      <a href="{% url 'VerEtapas' edi.id %}">VER ETAPAS</a></button>
-                                                      <a href="{% url 'EditarEdicion' edi.id %}">EDITAR</a>
-                                                      <a href="{% url 'EliminarEdicion' edi.id %}">ELIMINAR</a></button>
-                                                    </aside>
-                                            {% endfor %}
-                                        {% else %}
-                                            <div><span>No tiene ediciones </span></div>
-                                        {% endif%}
+                                            {% else %}
+                                                <div><span>No tiene ediciones </span></div>
+                                            {% endif%}
+
                                     <br>
-                                    <DIV>
-                                        <a href="{% url 'AgregarEdicion' datos.id %}">Añadir Edicion</a>
-                                    </DIV>
+
                                 </div>
 
                                 <hr>
 
                             </div>
-                        </section>
+
                     </section>
             </div>
         </section>

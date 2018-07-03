@@ -1,51 +1,54 @@
 {% extends 'Base/Base.html'%}
 {% block content %}
-<section CLASS="jumbotron">
-    <div class="container">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class = "col-md-10" >
-                            <form method="GET" action="{% url 'BuscarCarrera' %}">
-                                <div class="col-md-10"><input class="form-control"type="text" name="nombre_carrera"></div>
-                                <div class="col-md-2"><input class="btn btn-primary activate btn-lg" class="btn btn-primary" type="submit" value="BUSCAR"></div>
-                            </form>
-                        </div>
-                        <div class="col-md-1">
-                            <a class="btn btn-warning btn-lg" href="{% url 'AgregarCarrera' %}"> Nueva Carrera </a>
-                        </div>
-                    </div>
-                </div>
-    </div>
-        {% if carreras %}
-
+   <section class="jumbotron" style="background-image : url(https://i.pinimg.com/originals/53/04/70/5304706e3108d7226a82ce812e67ced2.jpg);
+	  		 		    background-repeat: no-repeat ; center center ; min-height : 700px;">
+        <div class="container-fluid" >
+            <section CLASS="jumbotron" style="background-color:rgba(238, 238, 238, 0.3);overflow: auto;">
                 <div class="container">
-
-                    <div class="container">
-                        <div class="col-md-9">
-                        {% for carrera in carreras %}
-                            <div class="col-md-4">
-                                <img src="https://image.flaticon.com/icons/svg/17/17958.svg" class="img-responsive img-rounder" alt="">
-                                <div class = "container" >
-                                    <h2><a href="{% url 'DetalleCarrera' carrera.id %}"> {{ carrera.nombre_serie }} </a> </h2>
-                                    <div class="container">
-                                        <div class="row-md-2"><SPAN>  {{carrera.descripcion}}</SPAN></div>
-                                        <br>
-                                        <div  class="row-md-2">
-                                            <a class="btn btn-primary btn-md" href="{% url 'EditarCarrera' carrera.id %}">EDITAR</a>
-                                            <a class="btn btn-danger btn-md" href="{% url 'EliminarCarrera' carrera.id %}">ELIMINAR</a>
-                                        </div>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class = "col-md-10" >
+                                        <form method="GET" action="{% url 'BuscarCarrera' %}">
+                                            <div class="col-md-10"><input class="form-control"type="text" name="nombre_carrera"></div>
+                                            <div class="col-md-2"><input class="btn btn-primary activate btn-lg" class="btn btn-primary" type="submit" value="BUSCAR"></div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <a class="btn btn-warning btn-lg" href="{% url 'AgregarCarrera' %}"> Nueva Carrera </a>
                                     </div>
                                 </div>
-                            </div>
-                        {% endfor %}
-                        </div>
-                        <div class="col-md-3">
-                            Publicidad
-                        </div>
                     </div>
-
-
                 </div>
-    {% endif %}
+                {% if carreras %}
+
+                        <div class="container-fluid">
+
+                            <div class="container">
+                                <div class="col-md-10" align="center">
+                                {% for carrera in carreras %}
+                                    <div class="col-md-4" style="background-color:rgba(238, 238, 238, 0.8);">
+                                        <div class = "container-fluid" >
+                                            <img src="https://image.flaticon.com/icons/svg/17/17958.svg" style="height: 100px;" class="img-responsive img-rounder" alt="">
+                                            <h2><a href="{% url 'DetalleCarrera' carrera.id %}"> {{ carrera.nombre_serie }} </a> </h2>
+                                            <div class="container">
+                                                <div class="row-md-2"><SPAN>  {{carrera.descripcion}}</SPAN></div>
+                                                <br>
+                                                <div  class="row-md-2">
+                                                    <a class="btn btn-primary btn-md" href="{% url 'EditarCarrera' carrera.id %}">EDITAR</a>
+                                                    <a class="btn btn-danger btn-md" href="{% url 'EliminarCarrera' carrera.id %}">ELIMINAR</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                {% endfor %}
+                                <div class="clearfix visible-md-block"></div>
+                                </div>
+                            </div>
+                        </div>
+                {% endif %}
             </section>
+        </div>
+    </section>
 {% endblock%}

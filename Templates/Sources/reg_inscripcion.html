@@ -1,0 +1,53 @@
+{% extends 'Base/Base.html'%}
+{%block content%}
+   <section class="jumbotron" style="background-image : url(https://i.pinimg.com/originals/53/04/70/5304706e3108d7226a82ce812e67ced2.jpg);
+	  		 		    background-repeat: no-repeat ; center center ; min-height : 700px;">
+        <div class="container-fluid" >
+            <section CLASS="jumbotron" style="background-color:rgba(238, 238, 238, 0.3);overflow: auto;">
+                <div class="col-xs-7 col-md-6 col-lg-9">
+                <h2 >INSCRIPCION </h2>
+                <form method="post">
+                {% csrf_token %}
+                    <!--Registro de la persona-->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="{form2.ape_pat.ape_pat}"> {{form2.ape_pat.label}}</label>{{form2.ape_pat}}
+                        </div>
+                        <div class="col-md-3">
+                            <label for="{form2.ape_mat.ape_mat}"> {{form2.ape_mat.label}}</label>{{form2.ape_mat}}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="{form2.nombre.nombre}"> {{form2.nombre.label}}</label>{{form2.nombre}}
+                        </div>
+                    </div>
+                    <div>
+                        <label for="{form2.dni.dni}"> {{form2.dni.label}}</label>{{form2.dni}}
+                    </div>
+                    <div>
+                        <label for="{form2.direccion.direccion}"> {{form2.direccion.label}}</label>{{form2.direccion}}
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="{form2.sexo.sexo}"> {{form2.sexo.label}}</label>{{form2.sexo}}
+                        </div>
+                        <div class="col-md-2">
+                            <label for="{form2.edad.edad}"> {{form2.edad.label}}</label>{{form2.edad}}
+                        </div>
+                        <div class="col-md-2">
+                            <label for="{form2.peso.peso}"> {{form2.peso.label}}</label>{{form2.peso}}
+                        </div>
+                        <div class="col-md-2">
+                            <label for="{form2.talla.talla}"> {{form2.talla.label}}</label>{{form2.talla}}
+                        </div>
+                    </div>
+                    <div>
+                        <!-- Registro de la inscripcion-->
+                        <label for="{form.id_edicion.id_edicion}"> {{form.id_edicion.label}}</label>{{form.id_edicion}}
+                    </div>
+                <button  class="btn btn-primary" type="submit">GUARDAR</BUTTON>
+                </FORM>
+                </DIV>
+            </section>
+        </DIV>
+</SECTION>
+{% endblock %}

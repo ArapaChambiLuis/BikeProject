@@ -1,0 +1,44 @@
+{% extends 'Base/Base.html'%}
+    {% block content %}
+        {% if ediciones %}
+<section class="jumbotron" style="background-image : url(https://i.pinimg.com/originals/53/04/70/5304706e3108d7226a82ce812e67ced2.jpg);
+	  		 		    background-repeat: no-repeat ; center center ; min-height : 700px;">
+    <div class="container-fluid" >
+        <section CLASS="jumbotron" style="background-color:rgba(238, 238, 238, 0.5);overflow: auto;">
+
+
+                        <div align="center">
+                        <h1>
+                            Carreras disponibles en este momento
+                        </h1>
+                        </div>
+                            <h4 align="center"> Inscribite y participa para poder ganar premios</h4>
+
+
+                        <div class="col-md-9">
+                            {% for carrera in ediciones %}
+
+                            <div class="col-md-4" >
+                                <div class="container">
+                                    <img align="center" src="https://cdn.icon-icons.com/icons2/847/PNG/512/cycling_road_icon-icons.com_67234.png" style="height: 100px;" class="img-responsive img-rounder" alt="">
+                                     <div class="container">
+                                        <h3><a href="{% url 'DetalleCarrera' carrera.id_serie_id %}"> {{ carrera }} </a> </h3>
+
+                                            <div class="col-md-10">
+                                                <h4 >  {{carrera.descripcion}}</h4>
+                                                <a class="btn btn-warning btn-md" href="{% url 'Inscribirse'  %}">Inscribirse</a>
+                                            </div>
+
+                                     </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-3"></div>
+        {% endif %}
+        </section>
+    </div>
+</section>
+
+
+{% endblock%}

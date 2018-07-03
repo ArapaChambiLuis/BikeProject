@@ -1,0 +1,53 @@
+{% extends 'Base/Base.html' %}
+{% block content %}
+   <section class="jumbotron" style="background-image : url(https://i.pinimg.com/originals/53/04/70/5304706e3108d7226a82ce812e67ced2.jpg);
+	  		 		    background-repeat: no-repeat ; center center ; min-height : 700px;">
+        <div class="container-fluid" >
+            <section CLASS="jumbotron" style="background-color:rgba(238, 238, 238, 0.8);overflow: auto;">
+                <table class="table table-striped">
+                        <div class="container">
+                            <div class="container">
+                                <div class="row">
+                                    <br>
+                                    <div class="col-md-9" align="center">
+                                    <h1> Registro de inscritos Edicion {{edicion}}</h1>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <img class="img-responsive rounded-circle" src="https://cdn.icon-icons.com/icons2/910/PNG/512/print_icon-icons.com_71115.png" onclick="window.print()" width="100%" height="100%" >
+                                        </img>
+                                    </div>
+                                </div>
+                                {% if inscripciones %}
+                                    <thead align="center">
+                                        <tr>
+                                            <td><h3>NOMBRE</h3></td>
+                                            <td><h3>FECHA DE INSCRIPCION</h3></td>
+                                        </tr>
+                                    </thead>
+                                {% endif %}
+                            </div>
+                            <div class="container">
+                                <tbody align="center">
+                                    <div class="container">
+                                    {% if inscripciones %}
+                                       <div class="container-fluid" >
+                                            {% for inscrip in inscripciones %}
+                                            <tr class="activate">
+                                                <td>{{inscrip.id_ciclista}}</td>
+                                                <td>{{inscrip.fecha_insc}}</td>
+                                            </tr>
+                                             {% endfor%}
+                                           {% else %}
+                                            <h3>No se encuentran registros actualmente</h3>
+                                       </div>
+                                    {%endif%}
+                                    </div>
+                                </tbody>
+                            </div>
+                        </div>
+            </table>
+        </section>
+    </div>
+</section>
+
+{% endblock %}
